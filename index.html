@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor y amistad</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #ffc0cb;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffc0cb;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #ff1493;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #ffb6c1;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            z-index: 1;
+        }
+
+        .envelope-details {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            height: 40px;
+            border-top: 2px solid #ff69b4;
+            border-bottom: 2px solid #ff69b4;
+        }
+
+        .letter {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: #fff0f5;
+            border: 1px solid #ffb6c1;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .letter h1 {
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+
+        .letter img {
+            display: block;
+            max-width: 100%;
+            margin: 30px auto;
+            border: 5px solid #ff69b4;
+            border-radius: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" id="envelope" onclick="showLetter()">
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-details"></div>
+        </div>
+    </div>
+
+    <div class="letter" id="letter">
+        <span class="close-button" onclick="hideLetter()">&times;</span>
+        <h1>Para mi mejor amiga</h1>
+        <p>Pequeña...</p>
+        <p>Hoy es un día especial para celebrar el amor y la amistad que nos une. Quiero agradecerte por ser una parte tan importante de mi vida. Tu apoyo, tu risa y tu amor hacen que cada día sea más brillante.</p>
+        <p>Eres más que una amiga, eres una hermana, una confidente y una compañera de aventuras. Me siento afortunado de tenerte en mi vida.</p>
+        <p>Gracias por estar siempre ahí para mí, por escucharme, por hacerme reír y por ser mi roca en momentos difíciles.</p>
+        <p>No sé cómo agradecerte todo lo que has hecho por mi , eres una persona sumamente especial en mi vida , te quiero con toda mi alma.</p>
+        <p>Feliz día del amor y la amistad pequeña , te quiero mucho 🫶🏻✨</p>
+        <img src="img/Mejor amiga.jpeg" alt="Nuestra foto juntos">
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="sound/DEKKO - BFF (Official Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showLetter() {
+            document.getElementById('letter').style.display = 'block';
+            document.getElementById('backgroundMusic').play();
+        }
+
+        function hideLetter() {
+            document.getElementById('letter').style.display = 'none';
+            document.getElementById('backgroundMusic').pause();
+            document.getElementById('backgroundMusic').currentTime = 0;
+        }
+    </script>
+</body>
+</html>
